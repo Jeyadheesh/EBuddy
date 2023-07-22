@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Lato&family=Poppins&family=Raleway&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.text-shadow {
+    text-shadow: 1.5px 1.5px #5EBAB0;
+}
+
+.text-shadow1 {
+    text-shadow: 0px 0px 1.5px yellow;
+}
+
+.boxShadow {
+    box-shadow: 0px 0px 1px 1.5px #5EBAB0;
+}
+
+.boxShadow:hover {
+    box-shadow: 0px 0px 2px 2.7px #5EBAB0;
+}
+
+.boxShadow1 {
+    box-shadow: 0px 0px 1px 1.5px black;
+}
+
+.boxShadow1:hover {
+    box-shadow: 0px 0px 2.5px 2.9px black;
+}
+
+.btn:hover {
+    /* box-shadow: 0px 0px 2px 2px black; */
+}
+
+.cgnameinfo:after {
+    content: "";
+    padding: 1rem 1rem;
+    background: #B590C1;
+    position: absolute;
+    top: -2rem;
+    left: 35%;
+    clip-path: polygon(50% 66%, 0% 100%, 100% 100%);
+    -webkit-clip-path: polygon(50% 66%, 0% 100%, 100% 100%);
+}
+
+.cgnameinfo1:after {
+    content: "";
+    padding: 1rem 1rem;
+    background: #22c55e;
+    position: absolute;
+    top: 0rem;
+    right: -1.3rem;
+    clip-path: polygon(58% 47%, 0 0, 0 100%);
+    -webkit-clip-path: polygon(58% 47%, 0 0, 0 100%);
+}
+
+.imgMotion {
+    animation: motio .7s ease-in alternate infinite;
+    transition: all 0.5s linear;
+}
+
+@keyframes motio {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+
+        transform: translateX(15);
+
+    }
+
+    100% {
+        transform: translateX(30);
+
+    }
+}
+
+
+.you {
+    margin-right: auto;
+    background-color: rgba(245, 53, 229, 1);
+    margin-left: .3rem;
+}
+
+.you span {
+    position: absolute;
+    left: -1.1em;
+    top: 1rem;
+    background-color: rgba(245, 53, 229, 1);
+    clip-path: polygon(31% 48%, 100% 100%, 100% 0);
+}
+
+.me {
+    background-color: rgba(67, 95, 219, 1);
+    margin-left: auto;
+    margin-right: .3rem;
+}
+
+.me span {
+    position: absolute;
+    right: -1.1em;
+    top: 1rem;
+    background-color: rgba(67, 95, 219, 1);
+    clip-path: polygon(69% 52%, 0 100%, 0 0);
+}
+
+/* Image */
+.productImage {
+    mix-blend-mode: color-burn;
+    /* object-fit: contain; */
+    /* aspect-ratio: 3/2; */
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #B590C1;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: #B590C1;
+}
