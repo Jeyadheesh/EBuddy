@@ -208,7 +208,7 @@ const UserProfile: FC = () => {
                           : "text-[1.1rem]"
                       } mx-auto w-2/3 font-semibold   text-priClr dark:text-slate-200 `}
                     >
-                      {userData ? userData[Object.values(li)[0]] : ""}
+                      {userData[Object.values(li)[0]]}
                     </h1>
                   </div>
                 );

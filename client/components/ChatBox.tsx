@@ -28,9 +28,9 @@ const ChatBox: FC<chatPropsType> = ({ userId, setUserId, mobile }) => {
     setAdminId(admindata?._id);
   };
 
-  const { isLogin, setIsLogin } = useLogin();
+  const { setIsLogin } = useLogin();
   const { userData, setUserData } = useUser();
-  const [prfImg, setPrfImg] = useState<any>();
+  // const [prfImg, setPrfImg] = useState<any>();
   const refs = useRef<MutableRefObject<HTMLDivElement[]> | [] | any>([]);
 
   const checker = async () => {
@@ -38,7 +38,7 @@ const ChatBox: FC<chatPropsType> = ({ userId, setUserId, mobile }) => {
     const { isLogin1, coData }: handleCookieType | any = await checkCookie();
     // console.log(isLogin1, coData);
     if (coData.email == undefined) navigate("/");
-    if (coData.profileImgId) setPrfImg(coData.profileImgId.profileImg);
+    // if (coData.profileImgId) setPrfImg(coData.profileImgId.profileImg);
     setIsLogin(isLogin1);
     setUserData(coData);
     setIsLoading(false);

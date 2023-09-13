@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { userSchema } from "../types";
 
 interface useUserType {
-  userData: userSchema | null;
+  userData: userSchema | null | any;
   setUserData: (data: userSchema | null) => void;
 }
 

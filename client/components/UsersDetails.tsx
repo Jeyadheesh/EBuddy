@@ -13,8 +13,8 @@ import { Buffer } from "buffer";
 import { userDetails1 } from "../utils/jsonData";
 
 const UsersDetails: FC = () => {
-  const [lists, setLists] = useState<userSchema[] | null>(null);
-  const [isLists, setIsLists] = useState<boolean>(true);
+  const [lists, setLists] = useState<userSchema[] | any[] | null>(null);
+  // const [isLists, setIsLists] = useState<boolean>(true);
   const { setIsLogin } = useLogin();
   const [isLoading, setIsLoading] = useState<boolean | any>(true);
   const { setUserData } = useUser();
@@ -57,10 +57,10 @@ const UsersDetails: FC = () => {
       console.log(resdata);
       if (resdata.length == 0) {
         // setIsLoading(false);
-        setIsLists(false);
+        // setIsLists(false);
       } else {
         setLists(resdata.userDatas);
-        setIsLists(true);
+        // setIsLists(true);
       }
       setIsLoading(false);
     } catch (error) {

@@ -118,7 +118,7 @@ interface chatUserType {
 
 interface chatPropsType {
   userId?: chatUserType | null;
-  setUserId?: React.Dispatch<React.SetStateAction<chatUserType | null>> | null;
+  setUserId?: React.Dispatch<React.SetStateAction<chatUserType | null>> | any;
   mobile?: boolean;
   setMobile?: React.Dispatch<React.SetStateAction<boolean>>;
 }
