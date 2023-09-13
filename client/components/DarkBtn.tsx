@@ -3,7 +3,7 @@ import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 const DarkBtn = () => {
   const [theme, setTheme] = useState<string>("light");
-  const [forRender, setForRender] = useState<boolean>(true);
+  // const [forRender, setForRender] = useState<boolean>(true);
 
   useEffect(() => {
     const lsTheme = localStorage.getItem("theme");
@@ -28,7 +28,7 @@ const DarkBtn = () => {
 
   const handleClick = () => {
     toggleTheme();
-    setForRender((forRender) => !forRender);
+    // setForRender((forRender) => !forRender);
   };
 
   return (

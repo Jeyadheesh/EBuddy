@@ -1,22 +1,20 @@
-import React, { useContext, useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import { NavLink, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { ToastContainer } from "react-toastify";
+import { NavLink } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
 import DarkBtn from "../components/DarkBtn";
-import UserDetails from "../components/UsersDetails";
 import AdminShipped from "../components/AdminShipped";
-import { adminPageType, handleCookieType } from "../types";
+import { adminPageType } from "../types";
 import UsersDetails from "../components/UsersDetails";
 import AdminChat from "../components/AdminChat";
 
 const Admin = () => {
-  const navigate = useNavigate();
   const [page, setPage] = useState<adminPageType>("users");
 
   // setPage("users");
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     console.log(e.target.value);
-    setPage(e.target.value);
+    setPage(e.target.value as adminPageType);
     // setIsLoading(true);
     // renderData(userData.email, e.target.value);
   };

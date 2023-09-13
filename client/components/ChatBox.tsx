@@ -245,7 +245,7 @@ const ChatBox: FC<chatPropsType> = ({ userId, setUserId, mobile }) => {
                 <div className="" key={i}>
                   <div
                     className={` ${
-                      a == li?.date ? "hidden" : (a = li?.date)
+                      a == li?.date ? "hidden" : (a = li?.date as string)
                     } mx-auto my-1 mb-2.5 w-fit rounded bg-priClr p-1 px-4 text-center font-semibold text-slate-200`}
                   >
                     {li?.date}

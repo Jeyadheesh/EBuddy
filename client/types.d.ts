@@ -29,7 +29,7 @@ interface userSchema {
   password: string;
   phno: number;
   role: string;
-  profileImgId?: profileImgIdd | string;
+  profileImgId?: profileImgIdd;
 }
 
 interface handleCookieType {
@@ -118,7 +118,7 @@ interface chatUserType {
 
 interface chatPropsType {
   userId?: chatUserType | null;
-  setUserId?: React.Dispatch<React.SetStateAction<chatUserType | null>>;
+  setUserId?: React.Dispatch<React.SetStateAction<chatUserType | null>> | null;
   mobile?: boolean;
   setMobile?: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -129,12 +129,12 @@ interface chatPropsType {
 // }
 
 interface chatMessageType {
-  senderId: string;
-  userId: string;
-  userName: string;
-  message: string;
-  adminId: string;
-  date: string;
-  time: string;
-  role: string;
+  senderId: string | undefined;
+  userId: string | undefined;
+  userName: string | undefined;
+  message: string | undefined;
+  adminId: string | undefined;
+  date: string | undefined;
+  time: string | undefined;
+  role: string | undefined;
 }

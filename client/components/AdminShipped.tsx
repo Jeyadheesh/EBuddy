@@ -16,15 +16,15 @@ import { Buffer } from "buffer";
 const AdminShipped = () => {
   // const [isOpen, setIsOpen] = useState<boolean>(true);
   const [userList, setUserList] = useState<userSchema[] | []>([]);
-  const [userList1, setUserList1] = useState([]);
+  // const [userList1, setUserList1] = useState([]);
   const [productList, setProductList] = useState<userCartType[] | []>([]);
   // const [productList1, setProductList1] = useState([]);
   const [isLists, setIsLists] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState<boolean | any>(true);
-  const { isLogin, setIsLogin } = useLogin();
-  const { userData, setUserData } = useUser();
+  const { setIsLogin } = useLogin();
+  const { setUserData } = useUser();
   const navigate = useNavigate();
-  const refs = useRef<HTMLDivElement[]>([]);
+  const refs: any = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
     const checker = async () => {
@@ -85,7 +85,7 @@ const AdminShipped = () => {
         setIsLoading(false);
       } else {
         // setUserList(resdata.usersData);
-        setUserList1(resdata.usersData);
+        // setUserList1(resdata.usersData);
         setProductList(resdata.productsData);
         // setLists(resdata.userDatas);
         // setIsLists(true);

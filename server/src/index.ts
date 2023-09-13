@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 import bodyparser from "body-parser";
 import cookieParser from "cookie-parser";
 import { Chat } from "./schema/chatModel";
-import { AxiosError } from "axios";
+// import { AxiosError } from "axios";
 import { Server } from "socket.io";
 import { createServer } from "http";
 
@@ -59,7 +59,7 @@ io.on("connect", async (socket) => {
 
     const recData = await Chat.find({ userId: data.userId });
     socket.to(data.userId).emit("receiveMsg", recData);
-    console.log(data);
+    // console.log(data);
   });
 
   socket.on("disconnect", () => {
@@ -69,7 +69,7 @@ io.on("connect", async (socket) => {
 
 async function checkConnection() {
   try {
-    await mongoose.connect(`mongodb://127.0.0.1:27017/${process.env.DB_NAME}`);
+    await mongoose.connect(process.env.ATLAS_URL as string);
     console.log("Connected");
   } catch (error: any) {
     console.log("Not Connected :", error.message);

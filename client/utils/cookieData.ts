@@ -1,10 +1,5 @@
 import axios from "axios";
-import { handleCookieType, userSchema } from "../types";
-
-interface cooType {
-  isLogin1: boolean;
-  coData: userSchema | null;
-}
+import { handleCookieType } from "../types";
 
 const checkCookie = async (): Promise<handleCookieType | any> => {
   try {

@@ -1,6 +1,6 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import profile from "../src/assets/profile.png";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { ToastContainer, toast } from "react-toastify";
 import useLogin from "../store/useLogin";
@@ -15,11 +15,10 @@ import { userDetails1 } from "../utils/jsonData";
 const UsersDetails: FC = () => {
   const [lists, setLists] = useState<userSchema[] | null>(null);
   const [isLists, setIsLists] = useState<boolean>(true);
-  const { isLogin, setIsLogin } = useLogin();
+  const { setIsLogin } = useLogin();
   const [isLoading, setIsLoading] = useState<boolean | any>(true);
-  const { userData, setUserData } = useUser();
+  const { setUserData } = useUser();
   const navigate = useNavigate();
-
 
   useEffect(() => {
     const checker = async () => {

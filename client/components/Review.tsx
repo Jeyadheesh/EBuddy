@@ -4,8 +4,8 @@ import { AiFillStar, AiOutlineClose, AiOutlineStar } from "react-icons/ai";
 import useUser from "../store/useUser";
 import { ToastContainer, toast } from "react-toastify";
 
-const Review: FC<any> = ({ isRevOpen, setIsRevOpen, revData, renderData }) => {
-  const refs = useRef<HTMLDivElement[]>([]);
+const Review: FC<any> = ({ setIsRevOpen, revData, renderData }) => {
+  const refs: any = useRef<HTMLDivElement[]>([]);
   const [isTest, setIsTest] = useState([false, false, false, false, false]);
   const [isError, setIsError] = useState<boolean>(false);
   const [title, setTitle] = useState<string>("");
@@ -23,6 +23,7 @@ const Review: FC<any> = ({ isRevOpen, setIsRevOpen, revData, renderData }) => {
 
     setIsTest((isTest) => {
       return isTest.map((it, i) => {
+        console.log(it);
         return i <= id;
       });
     });

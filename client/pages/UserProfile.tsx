@@ -68,7 +68,7 @@ const UserProfile: FC = () => {
     console.log(img);
     // setPrfImg(e.target.files[0]);
     const formData = new FormData();
-    formData.append("email", userData?.email);
+    formData.append("email", userData?.email as string);
     formData.append("prfImg", img);
 
     let config = {

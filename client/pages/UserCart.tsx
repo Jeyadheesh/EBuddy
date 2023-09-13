@@ -15,12 +15,12 @@ import Loader from "../components/Loader";
 import Review from "../components/Review";
 
 const UserCart = () => {
-  const [lists, setLists] = useState<Array<userCartType | null>>([]);
+  const [lists, setLists] = useState<Array<userCartType>>([]);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isRevOpen, setIsRevOpen] = useState<boolean>(false);
 
-  const { isLogin, setIsLogin } = useLogin();
+  const { setIsLogin } = useLogin();
   const { userData, setUserData } = useUser();
   const [total, setTotal] = useState<number>(0);
   const [isLists, setIsLists] = useState<boolean>(true);
@@ -47,7 +47,7 @@ const UserCart = () => {
     setTotal((n) => Number((n + newNo).toFixed(2)));
   };
 
-  const renderData = async (email: string, pa: string) => {
+  const renderData = async (email: string | any, pa: string) => {
     // console.log("second");
     //
     const resData = await axios.post(
@@ -142,9 +142,9 @@ const UserCart = () => {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     console.log(e.target.value);
-    setPage(e.target.value);
+    setPage(e.target.value as cartPageType);
     // setIsLoading(true);
     renderData(userData?.email, e.target.value);
   };

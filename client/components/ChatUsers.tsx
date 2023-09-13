@@ -1,12 +1,12 @@
 import { FC, useEffect, useState } from "react";
 import profile from "../src/assets/profile.png";
 import axios from "axios";
-import { chatPropsType, userSchema } from "../types";
+import { chatPropsType, profileImgIdd, userSchema } from "../types";
 import Loader from "../components/Loader";
 import { Buffer } from "buffer";
 
 const ChatUsers: FC<chatPropsType> = ({ userId, setUserId, mobile }) => {
-  const [lists, setLists] = useState<userSchema[] | []>([]);
+  const [lists, setLists] = useState<userSchema[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const renderData = async () => {
