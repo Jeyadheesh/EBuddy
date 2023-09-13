@@ -51,7 +51,7 @@ const UsersDetails: FC = () => {
     setIsLoading(true);
     try {
       const resData = await axios.get(
-        "http://localhost:9000/admin/userdetails"
+        `http://localhost:9000/admin/userdetails`
       );
       const resdata = resData.data;
       console.log(resdata);
@@ -72,7 +72,7 @@ const UsersDetails: FC = () => {
     const isOk = confirm(`Are you sure to delete user : ${email}`);
     if (isOk) {
       const resData = await axios.post(
-        "http://localhost:9000/admin/deleteuser",
+        `http://localhost:9000/admin/deleteuser`,
         {
           email: email,
         }

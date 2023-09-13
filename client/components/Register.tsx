@@ -45,7 +45,7 @@ const Register: FC = () => {
 
   const handleCheckPass = async () => {
     console.log(passVal);
-    const resData = await axios.post("http://localhost:9000/auth/passcheck", {
+    const resData = await axios.post(`http://localhost:9000/auth/passcheck`, {
       email: userData?.email,
       password: passVal,
     });
@@ -129,7 +129,7 @@ const Register: FC = () => {
   const onSubmitHandler: SubmitHandler<FormSchema> = async (data) => {
     console.log(data);
     if (!isLogin) {
-      const resData = await axios.post("http://localhost:9000/auth/register", {
+      const resData = await axios.post(`http://localhost:9000/auth/register`, {
         data: data,
       });
       const resdata = resData.data;
@@ -145,7 +145,7 @@ const Register: FC = () => {
         notify2(resdata.msg);
       }
     } else {
-      const resData = await axios.put("http://localhost:9000/auth/edituser", {
+      const resData = await axios.put(`http://localhost:9000/auth/edituser`, {
         data: data,
       });
       const resdata = resData.data;
@@ -155,7 +155,7 @@ const Register: FC = () => {
         reset();
 
         const resData1 = await axios.post(
-          "http://localhost:9000/auth/login",
+          `http://localhost:9000/auth/login`,
           {
             data: data,
           },

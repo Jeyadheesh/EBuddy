@@ -84,7 +84,7 @@ const Navbar: FC = () => {
 
   const handleLogout = async () => {
     try {
-      const resData = await axios.get("http://localhost:9000/auth/logout", {
+      const resData = await axios.get(`http://localhost:9000/auth/logout`, {
         withCredentials: true,
       });
       const data = resData.data;

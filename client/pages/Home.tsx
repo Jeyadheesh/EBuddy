@@ -41,7 +41,7 @@ const Home = () => {
   // scrollRef.current.scrollTop = 0;
 
   const getAllData = async (): Promise<void> => {
-    const resData = await axios.get("http://localhost:9000/products");
+    const resData = await axios.get(`http://localhost:9000/products`);
     const resdata = resData.data;
     setLists(resdata);
     setLists1(resdata);

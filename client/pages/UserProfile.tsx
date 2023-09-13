@@ -79,7 +79,7 @@ const UserProfile: FC = () => {
       // 2MB
       console.log("in");
       const resData = await axios.post(
-        "http://localhost:9000/auth/editprofileimg",
+        `http://localhost:9000/auth/editprofileimg`,
         formData,
         config
       );
@@ -94,7 +94,7 @@ const UserProfile: FC = () => {
 
   const handleLogout = async () => {
     try {
-      const resData = await axios.get("http://localhost:9000/auth/logout", {
+      const resData = await axios.get(`http://localhost:9000/auth/logout`, {
         withCredentials: true,
       });
       const data = resData.data;

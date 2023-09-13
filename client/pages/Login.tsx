@@ -63,7 +63,7 @@ const Login: FC = () => {
     console.log(data);
 
     const resData = await axios.post(
-      "http://localhost:9000/auth/login",
+      `http://localhost:9000/auth/login`,
       {
         data: data,
       },

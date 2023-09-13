@@ -64,7 +64,7 @@ const ProductDetails = () => {
       );
       if (val) {
         const resData = await axios.post(
-          "http://localhost:9000/usercart/buyOneProduct",
+          `http://localhost:9000/usercart/buyOneProduct`,
           {
             userEmail: userData?.email,
             userName: userData?.name,
