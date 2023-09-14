@@ -8,7 +8,7 @@ import profile from "../src/assets/profile.png";
 import profile1 from "../src/assets/j3.png";
 import { io } from "socket.io-client";
 import { useNavigate } from "react-router-dom";
-const socket: any = io(`http://localhost:9000`);
+const socket: any = io(`https://ebuddy-server.onrender.com`);
 import { Buffer } from "buffer";
 import Loader from "../components/Loader";
 import axios from "axios";
@@ -22,7 +22,9 @@ const ChatBox: FC<chatPropsType> = ({ userId, setUserId, mobile }) => {
   const navigate = useNavigate();
 
   const setAdminn = async () => {
-    const adminn = await axios.get(`http://localhost:9000/admin/admins`);
+    const adminn = await axios.get(
+      `https://ebuddy-server.onrender.com/admin/admins`
+    );
     const admindata = adminn.data.adminData[0];
     console.log(admindata);
     setAdminId(admindata?._id);

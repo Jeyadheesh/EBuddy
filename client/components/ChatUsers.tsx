@@ -13,7 +13,7 @@ const ChatUsers: FC<chatPropsType> = ({ userId, setUserId, mobile }) => {
     setIsLoading(true);
     try {
       const resData = await axios.get(
-        `http://localhost:9000/admin/userdetails`
+        `https://ebuddy-server.onrender.com/admin/userdetails`
       );
       const resdata = resData.data;
       // setUserId(resdata.userDatas[0]._id);

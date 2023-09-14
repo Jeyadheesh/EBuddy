@@ -45,10 +45,13 @@ const Register: FC = () => {
 
   const handleCheckPass = async () => {
     console.log(passVal);
-    const resData = await axios.post(`http://localhost:9000/auth/passcheck`, {
-      email: userData?.email,
-      password: passVal,
-    });
+    const resData = await axios.post(
+      `https://ebuddy-server.onrender.com/auth/passcheck`,
+      {
+        email: userData?.email,
+        password: passVal,
+      }
+    );
     const resdata = resData.data;
     console.log(resdata);
     if (resdata.status == "noerr") {
@@ -129,9 +132,12 @@ const Register: FC = () => {
   const onSubmitHandler: SubmitHandler<FormSchema> = async (data) => {
     console.log(data);
     if (!isLogin) {
-      const resData = await axios.post(`http://localhost:9000/auth/register`, {
-        data: data,
-      });
+      const resData = await axios.post(
+        `https://ebuddy-server.onrender.com/auth/register`,
+        {
+          data: data,
+        }
+      );
       const resdata = resData.data;
       console.log(resdata);
       if (resdata.status == "noerr") {
@@ -145,9 +151,12 @@ const Register: FC = () => {
         notify2(resdata.msg);
       }
     } else {
-      const resData = await axios.put(`http://localhost:9000/auth/edituser`, {
-        data: data,
-      });
+      const resData = await axios.put(
+        `https://ebuddy-server.onrender.com/auth/edituser`,
+        {
+          data: data,
+        }
+      );
       const resdata = resData.data;
       console.log(resdata);
       if (resdata.status == "noerr") {
@@ -155,7 +164,7 @@ const Register: FC = () => {
         reset();
 
         const resData1 = await axios.post(
-          `http://localhost:9000/auth/login`,
+          `https://ebuddy-server.onrender.com/auth/login`,
           {
             data: data,
           },

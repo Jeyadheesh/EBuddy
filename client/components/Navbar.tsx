@@ -84,9 +84,12 @@ const Navbar: FC = () => {
 
   const handleLogout = async () => {
     try {
-      const resData = await axios.get(`http://localhost:9000/auth/logout`, {
-        withCredentials: true,
-      });
+      const resData = await axios.get(
+        `https://ebuddy-server.onrender.com/auth/logout`,
+        {
+          withCredentials: true,
+        }
+      );
       const data = resData.data;
       console.log(data);
 

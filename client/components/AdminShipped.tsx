@@ -78,7 +78,9 @@ const AdminShipped = () => {
     // console.log("second");
     setIsLoading(true);
     try {
-      const resData = await axios.get(`http://localhost:9000/admin/updetails`);
+      const resData = await axios.get(
+        `https://ebuddy-server.onrender.com/admin/updetails`
+      );
       const resdata = resData.data;
       console.log(resdata);
       if (resdata.length == 0) {
@@ -107,7 +109,7 @@ const AdminShipped = () => {
       const isOk = confirm(`Are you sure to ${type} the Product 😀 ?`);
       if (isOk) {
         const resData = await axios.post(
-          `http://localhost:9000/admin/selloneproduct`,
+          `https://ebuddy-server.onrender.com/admin/selloneproduct`,
           {
             userEmail: email,
             productId: productId,
@@ -137,7 +139,7 @@ const AdminShipped = () => {
       const isOk = confirm(`Are you sure to  ${type} All Products 😀 ?`);
       if (isOk) {
         const resData = await axios.post(
-          `http://localhost:9000/admin/sellallproduct`,
+          `https://ebuddy-server.onrender.com/admin/sellallproduct`,
           {
             userEmail: email,
             type: type,
