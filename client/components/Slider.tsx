@@ -110,7 +110,7 @@ const Slider: FC<propType> = ({ handleScroll }) => {
 
                   <div
                     // animate={{ x: X }}
-                    className="flex items-center justify-center"
+                    className="mx-auto my-auto hidden  h-[80%] w-[80%] items-center justify-center md:flex"
                   >
                     <motion.img
                       whileInView={{ y: 20 }}
@@ -120,7 +120,7 @@ const Slider: FC<propType> = ({ handleScroll }) => {
                     />
                   </div>
 
-                  <div className="absolute right-2 top-0 font-semibold text-blue-200">
+                  <div className="absolute right-2 top-1.5 font-semibold text-blue-200">
                     <span>
                       {curSlide + 1}/{sliderData.length}
                     </span>
