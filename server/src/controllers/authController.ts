@@ -207,7 +207,14 @@ export const passCheck = async (req: Request, res: Response) => {
 
 export const logout = (req: Request, res: Response) => {
   try {
-    res.clearCookie("jai");
+    const cookieOptions: CookieOptions = {
+      httpOnly: true,
+      sameSite: process.env.MODE == "production" ? "none" : "strict",
+      path: "/",
+      secure: true,
+      // domain: "localhost",
+    };
+    res.clearCookie("jai", cookieOptions);
     res.send("Cookie Deleted");
   } catch (error) {
     res.status(400).send({
