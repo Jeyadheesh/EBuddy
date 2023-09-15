@@ -143,7 +143,7 @@ export const login = async (req: Request, res: Response) => {
           Date.now() + Number(process.env.jwtCookieExpire) * 1000 * 60 * 60 * 24
         ),
         httpOnly: true,
-        sameSite: "lax",
+        sameSite: "none",
         path: "/",
         secure: true,
         // domain: "localhost",
