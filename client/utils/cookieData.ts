@@ -8,7 +8,7 @@ const checkCookie = async (): Promise<handleCookieType | any> => {
       coData: null,
     };
     const resData = await axios.get(
-      `https://ebuddy-server.onrender.com/auth/getcookiedata`,
+      `http://localhost:9000/auth/getcookiedata`,
       {
         withCredentials: true,
       }

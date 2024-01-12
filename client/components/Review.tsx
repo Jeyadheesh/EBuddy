@@ -43,7 +43,7 @@ const Review: FC<any> = ({ setIsRevOpen, revData, renderData }) => {
       setIsError(false);
 
       const resData = await axios.post(
-        `https://ebuddy-server.onrender.com/usercart/setreview`,
+        `http://localhost:9000/usercart/setreview`,
         {
           productId: revData.productId,
           mainId: revData._id,

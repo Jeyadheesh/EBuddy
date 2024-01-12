@@ -51,7 +51,7 @@ const UserCart = () => {
     // console.log("second");
     //
     const resData = await axios.post(
-      `https://ebuddy-server.onrender.com/usercart/getByEmail`,
+      `http://localhost:9000/usercart/getByEmail`,
       {
         email: email,
         page: pa,
@@ -75,7 +75,7 @@ const UserCart = () => {
     const isConfirm = confirm(`Are you sure to delete product ?`);
     if (isConfirm) {
       const resData = await axios.post(
-        `https://ebuddy-server.onrender.com/usercart/deleteproductbyid`,
+        `http://localhost:9000/usercart/deleteproductbyid`,
         {
           id: id,
         }
@@ -104,7 +104,7 @@ const UserCart = () => {
     );
     if (isConfirm) {
       const resData = await axios.post(
-        `https://ebuddy-server.onrender.com/usercart/buycartproducts`,
+        `http://localhost:9000/usercart/buycartproducts`,
         {
           userEmail: userData?.email,
         }
@@ -124,7 +124,7 @@ const UserCart = () => {
     const isConfirm = confirm(`Are you sure to delete product ?`);
     if (isConfirm) {
       const resData = await axios.post(
-        `https://ebuddy-server.onrender.com/usercart/deleteCartProduct`,
+        `http://localhost:9000/usercart/deleteCartProduct`,
         {
           userEmail: userData?.email,
           productId: id,

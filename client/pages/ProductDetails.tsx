@@ -35,9 +35,7 @@ const ProductDetails = () => {
       setIsLogin(isLogin1);
       setUserData(coData);
 
-      const resData = await axios.get(
-        `https://ebuddy-server.onrender.com/products/${id}`
-      );
+      const resData = await axios.get(`http://localhost:9000/products/${id}`);
       const resdata = resData.data;
       setProductData(resdata);
       setIsLoading(false);
@@ -66,7 +64,7 @@ const ProductDetails = () => {
       );
       if (val) {
         const resData = await axios.post(
-          `https://ebuddy-server.onrender.com/usercart/buyOneProduct`,
+          `http://localhost:9000/usercart/buyOneProduct`,
           {
             userEmail: userData?.email,
             userName: userData?.name,
@@ -92,19 +90,16 @@ const ProductDetails = () => {
 
   const addToCart = async () => {
     if (isLogin) {
-      const resData = await axios.post(
-        "https://ebuddy-server.onrender.com/usercart/",
-        {
-          userEmail: userData?.email,
-          userName: userData?.name,
-          productId: productData?.id,
-          title: productData?.title,
-          price: productData?.price,
-          description: productData?.description,
-          image: productData?.image,
-          quantity: itemCount,
-        }
-      );
+      const resData = await axios.post("http://localhost:9000/usercart/", {
+        userEmail: userData?.email,
+        userName: userData?.name,
+        productId: productData?.id,
+        title: productData?.title,
+        price: productData?.price,
+        description: productData?.description,
+        image: productData?.image,
+        quantity: itemCount,
+      });
       const resdata = resData.data;
       console.log(resdata);
 

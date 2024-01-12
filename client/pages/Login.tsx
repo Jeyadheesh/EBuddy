@@ -63,7 +63,7 @@ const Login: FC = () => {
     console.log(data);
 
     const resData = await axios.post(
-      `https://ebuddy-server.onrender.com/auth/login`,
+      `http://localhost:9000/auth/login`,
       {
         data: data,
       },

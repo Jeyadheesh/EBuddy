@@ -33,7 +33,7 @@ const SampleProducts: FC<propType> = ({ scrollRef, handleScroll }) => {
   const getDataByCategory = async () => {
     if (categories != "all") {
       const resData = await axios.get(
-        `https://ebuddy-server.onrender.com/products/category/${categories}`
+        `http://localhost:9000/products/category/${categories}`
       );
       const resdata = resData.data;
       setLists(resdata);
