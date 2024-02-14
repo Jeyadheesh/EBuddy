@@ -8,11 +8,11 @@ import profile from "../src/assets/profile.png";
 import profile1 from "../src/assets/j3.png";
 import { io } from "socket.io-client";
 import { useNavigate } from "react-router-dom";
-const socket: any = io(`http://localhost:9000`);
+import { SERVER_URL } from "../src/Constants";
+const socket: any = io(`${SERVER_URL}`);
 import { Buffer } from "buffer";
 import Loader from "../components/Loader";
 import axios from "axios";
-import { SERVER_URL } from "../src/Constants";
 
 const ChatBox: FC<chatPropsType> = ({ userId, setUserId, mobile }) => {
   const [curMsg, setCurMsg] = useState<string>("");
