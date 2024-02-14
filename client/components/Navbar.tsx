@@ -19,6 +19,7 @@ import { contextType, handleCookieType, profileImg } from "../types";
 import Loader from "./Loader";
 import { BsFillCartFill, BsFillChatLeftTextFill } from "react-icons/bs";
 import { RiAdminFill } from "react-icons/ri";
+import { SERVER_URL } from "../src/Constants";
 
 const Navbar: FC = () => {
   // const [isLogin, setIsLogin] = useState<boolean>(false);
@@ -84,7 +85,7 @@ const Navbar: FC = () => {
 
   const handleLogout = async () => {
     try {
-      const resData = await axios.get(`http://localhost:9000/auth/logout`, {
+      const resData = await axios.get(`${SERVER_URL}/auth/logout`, {
         withCredentials: true,
       });
       const data = resData.data;

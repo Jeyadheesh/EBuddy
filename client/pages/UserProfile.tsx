@@ -18,6 +18,7 @@ import { Buffer } from "buffer";
 import Loader from "../components/Loader";
 import { HiOutlineLogout } from "react-icons/hi";
 import { userDetails1 } from "../utils/jsonData";
+import { SERVER_URL } from "../src/Constants";
 
 const UserProfile: FC = () => {
   const { isLogin, setIsLogin } = useLogin();
@@ -79,7 +80,7 @@ const UserProfile: FC = () => {
       // 2MB
       console.log("in");
       const resData = await axios.post(
-        `http://localhost:9000/auth/editprofileimg`,
+        `${SERVER_URL}/auth/editprofileimg`,
         formData,
         config
       );
@@ -94,7 +95,7 @@ const UserProfile: FC = () => {
 
   const handleLogout = async () => {
     try {
-      const resData = await axios.get(`http://localhost:9000/auth/logout`, {
+      const resData = await axios.get(`${SERVER_URL}/auth/logout`, {
         withCredentials: true,
       });
       const data = resData.data;

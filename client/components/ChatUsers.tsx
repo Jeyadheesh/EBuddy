@@ -4,6 +4,7 @@ import axios from "axios";
 import { chatPropsType, userSchema } from "../types";
 import Loader from "../components/Loader";
 import { Buffer } from "buffer";
+import { SERVER_URL } from "../src/Constants";
 
 const ChatUsers: FC<chatPropsType> = ({ userId, setUserId, mobile }) => {
   const [lists, setLists] = useState<userSchema[]>([]);
@@ -12,9 +13,7 @@ const ChatUsers: FC<chatPropsType> = ({ userId, setUserId, mobile }) => {
   const renderData = async () => {
     setIsLoading(true);
     try {
-      const resData = await axios.get(
-        `http://localhost:9000/admin/userdetails`
-      );
+      const resData = await axios.get(`${SERVER_URL}/admin/userdetails`);
       const resdata = resData.data;
       // setUserId(resdata.userDatas[0]._id);
       // setUserId(res)

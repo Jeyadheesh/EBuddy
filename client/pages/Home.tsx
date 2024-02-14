@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import SampleProducts from "../components/SampleProducts";
 import { categoriesType, contextType, productType } from "../types";
 import axios from "axios";
+import { SERVER_URL } from "../src/Constants";
 
 export const CategoryContext = createContext<contextType | null>(null);
 
@@ -41,7 +42,7 @@ const Home = () => {
   // scrollRef.current.scrollTop = 0;
 
   const getAllData = async (): Promise<void> => {
-    const resData = await axios.get(`http://localhost:9000/products`);
+    const resData = await axios.get(`${SERVER_URL}/products`);
     const resdata = resData.data;
     setLists(resdata);
     setLists1(resdata);

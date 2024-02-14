@@ -6,6 +6,7 @@ import { CategoryContext } from "../pages/Home";
 import Loader from "./Loader";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { SERVER_URL } from "../src/Constants";
 // import categoriesType from "../types";
 // import {contextType} from "../pages/Home"
 
@@ -33,7 +34,7 @@ const SampleProducts: FC<propType> = ({ scrollRef, handleScroll }) => {
   const getDataByCategory = async () => {
     if (categories != "all") {
       const resData = await axios.get(
-        `http://localhost:9000/products/category/${categories}`
+        `${SERVER_URL}/products/category/${categories}`
       );
       const resdata = resData.data;
       setLists(resdata);

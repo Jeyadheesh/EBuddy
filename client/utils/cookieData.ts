@@ -1,5 +1,6 @@
 import axios from "axios";
 import { handleCookieType } from "../types";
+import { SERVER_URL } from "../src/Constants";
 
 const checkCookie = async (): Promise<handleCookieType | any> => {
   try {
@@ -7,12 +8,9 @@ const checkCookie = async (): Promise<handleCookieType | any> => {
       isLogin1: false,
       coData: null,
     };
-    const resData = await axios.get(
-      `http://localhost:9000/auth/getcookiedata`,
-      {
-        withCredentials: true,
-      }
-    );
+    const resData = await axios.get(`${SERVER_URL}/auth/getcookiedata`, {
+      withCredentials: true,
+    });
     const data = resData.data;
     if (data.status != "err") {
       console.log(data.cookieData);

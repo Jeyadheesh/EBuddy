@@ -13,6 +13,7 @@ import checkCookie from "../utils/cookieData";
 import useLogin from "../store/useLogin";
 import useUser from "../store/useUser";
 import { GrClose } from "react-icons/gr";
+import { SERVER_URL } from "../src/Constants";
 
 const Register: FC = () => {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ const Register: FC = () => {
 
   const handleCheckPass = async () => {
     console.log(passVal);
-    const resData = await axios.post(`http://localhost:9000/auth/passcheck`, {
+    const resData = await axios.post(`${SERVER_URL}/auth/passcheck`, {
       email: userData?.email,
       password: passVal,
     });
@@ -129,7 +130,7 @@ const Register: FC = () => {
   const onSubmitHandler: SubmitHandler<FormSchema> = async (data) => {
     console.log(data);
     if (!isLogin) {
-      const resData = await axios.post(`http://localhost:9000/auth/register`, {
+      const resData = await axios.post(`${SERVER_URL}/auth/register`, {
         data: data,
       });
       const resdata = resData.data;
@@ -145,7 +146,7 @@ const Register: FC = () => {
         notify2(resdata.msg);
       }
     } else {
-      const resData = await axios.put(`http://localhost:9000/auth/edituser`, {
+      const resData = await axios.put(`${SERVER_URL}/auth/edituser`, {
         data: data,
       });
       const resdata = resData.data;
@@ -155,7 +156,7 @@ const Register: FC = () => {
         reset();
 
         const resData1 = await axios.post(
-          `http://localhost:9000/auth/login`,
+          `${SERVER_URL}/auth/login`,
           {
             data: data,
           },

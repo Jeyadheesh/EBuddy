@@ -12,6 +12,7 @@ import axios from "axios";
 import useLogin from "../store/useLogin";
 import checkCookie from "../utils/cookieData";
 import { handleCookieType } from "../types";
+import { SERVER_URL } from "../src/Constants";
 
 const formShcema1 = z.object({
   email: z.string().email({ message: "Must be valid Email" }),
@@ -63,7 +64,7 @@ const Login: FC = () => {
     console.log(data);
 
     const resData = await axios.post(
-      `http://localhost:9000/auth/login`,
+      `${SERVER_URL}/auth/login`,
       {
         data: data,
       },

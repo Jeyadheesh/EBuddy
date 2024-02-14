@@ -11,6 +11,7 @@ import axios from "axios";
 import Loader from "../components/Loader";
 import { Buffer } from "buffer";
 import { userDetails1 } from "../utils/jsonData";
+import { SERVER_URL } from "../src/Constants";
 
 const UsersDetails: FC = () => {
   const [lists, setLists] = useState<userSchema[] | any[] | null>(null);
@@ -50,9 +51,7 @@ const UsersDetails: FC = () => {
   const renderData = async () => {
     setIsLoading(true);
     try {
-      const resData = await axios.get(
-        `http://localhost:9000/admin/userdetails`
-      );
+      const resData = await axios.get(`${SERVER_URL}/admin/userdetails`);
       const resdata = resData.data;
       console.log(resdata);
       if (resdata.length == 0) {
@@ -71,12 +70,9 @@ const UsersDetails: FC = () => {
   const handleDelete = async (email: string) => {
     const isOk = confirm(`Are you sure to delete user : ${email}`);
     if (isOk) {
-      const resData = await axios.post(
-        `http://localhost:9000/admin/deleteuser`,
-        {
-          email: email,
-        }
-      );
+      const resData = await axios.post(`${SERVER_URL}/admin/deleteuser`, {
+        email: email,
+      });
       const resdata = resData.data;
       console.log(resdata);
 

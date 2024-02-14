@@ -3,6 +3,7 @@ import { FC, useRef, useState } from "react";
 import { AiFillStar, AiOutlineClose, AiOutlineStar } from "react-icons/ai";
 import useUser from "../store/useUser";
 import { ToastContainer, toast } from "react-toastify";
+import { SERVER_URL } from "../src/Constants";
 
 const Review: FC<any> = ({ setIsRevOpen, revData, renderData }) => {
   const refs: any = useRef<HTMLDivElement[]>([]);
@@ -42,18 +43,15 @@ const Review: FC<any> = ({ setIsRevOpen, revData, renderData }) => {
       console.log(title, message, rating);
       setIsError(false);
 
-      const resData = await axios.post(
-        `http://localhost:9000/usercart/setreview`,
-        {
-          productId: revData.productId,
-          mainId: revData._id,
-          userId: userData?._id,
-          userName: userData?.name,
-          title: title,
-          rating: rating,
-          message: message,
-        }
-      );
+      const resData = await axios.post(`${SERVER_URL}/usercart/setreview`, {
+        productId: revData.productId,
+        mainId: revData._id,
+        userId: userData?._id,
+        userName: userData?.name,
+        title: title,
+        rating: rating,
+        message: message,
+      });
       const resdata = resData.data;
       console.log(resdata);
       renderData(userData?.email, "shipped");

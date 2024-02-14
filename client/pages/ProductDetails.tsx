@@ -17,6 +17,7 @@ import useLogin from "../store/useLogin";
 import useUser from "../store/useUser";
 import { ToastContainer, toast } from "react-toastify";
 import checkCookie from "../utils/cookieData";
+import { SERVER_URL } from "../src/Constants";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -35,7 +36,7 @@ const ProductDetails = () => {
       setIsLogin(isLogin1);
       setUserData(coData);
 
-      const resData = await axios.get(`http://localhost:9000/products/${id}`);
+      const resData = await axios.get(`${SERVER_URL}/products/${id}`);
       const resdata = resData.data;
       setProductData(resdata);
       setIsLoading(false);
@@ -64,7 +65,7 @@ const ProductDetails = () => {
       );
       if (val) {
         const resData = await axios.post(
-          `http://localhost:9000/usercart/buyOneProduct`,
+          `${SERVER_URL}/usercart/buyOneProduct`,
           {
             userEmail: userData?.email,
             userName: userData?.name,
@@ -90,7 +91,7 @@ const ProductDetails = () => {
 
   const addToCart = async () => {
     if (isLogin) {
-      const resData = await axios.post("http://localhost:9000/usercart/", {
+      const resData = await axios.post(`${SERVER_URL}/usercart/`, {
         userEmail: userData?.email,
         userName: userData?.name,
         productId: productData?.id,

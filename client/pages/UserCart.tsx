@@ -13,6 +13,7 @@ import { ToastContainer, toast } from "react-toastify";
 import checkCookie from "../utils/cookieData";
 import Loader from "../components/Loader";
 import Review from "../components/Review";
+import { SERVER_URL } from "../src/Constants";
 
 const UserCart = () => {
   const [lists, setLists] = useState<Array<userCartType>>([]);
@@ -50,13 +51,10 @@ const UserCart = () => {
   const renderData = async (email: string | any, pa: string) => {
     // console.log("second");
     //
-    const resData = await axios.post(
-      `http://localhost:9000/usercart/getByEmail`,
-      {
-        email: email,
-        page: pa,
-      }
-    );
+    const resData = await axios.post(`${SERVER_URL}/usercart/getByEmail`, {
+      email: email,
+      page: pa,
+    });
     const resdata = resData.data.data;
     console.log(resdata.length);
     if (resdata.length == 0) {
@@ -75,7 +73,7 @@ const UserCart = () => {
     const isConfirm = confirm(`Are you sure to delete product ?`);
     if (isConfirm) {
       const resData = await axios.post(
-        `http://localhost:9000/usercart/deleteproductbyid`,
+        `${SERVER_URL}/usercart/deleteproductbyid`,
         {
           id: id,
         }
@@ -104,7 +102,7 @@ const UserCart = () => {
     );
     if (isConfirm) {
       const resData = await axios.post(
-        `http://localhost:9000/usercart/buycartproducts`,
+        `${SERVER_URL}/usercart/buycartproducts`,
         {
           userEmail: userData?.email,
         }
@@ -124,7 +122,7 @@ const UserCart = () => {
     const isConfirm = confirm(`Are you sure to delete product ?`);
     if (isConfirm) {
       const resData = await axios.post(
-        `http://localhost:9000/usercart/deleteCartProduct`,
+        `${SERVER_URL}/usercart/deleteCartProduct`,
         {
           userEmail: userData?.email,
           productId: id,

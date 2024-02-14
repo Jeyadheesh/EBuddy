@@ -12,6 +12,7 @@ const socket: any = io(`http://localhost:9000`);
 import { Buffer } from "buffer";
 import Loader from "../components/Loader";
 import axios from "axios";
+import { SERVER_URL } from "../src/Constants";
 
 const ChatBox: FC<chatPropsType> = ({ userId, setUserId, mobile }) => {
   const [curMsg, setCurMsg] = useState<string>("");
@@ -22,7 +23,7 @@ const ChatBox: FC<chatPropsType> = ({ userId, setUserId, mobile }) => {
   const navigate = useNavigate();
 
   const setAdminn = async () => {
-    const adminn = await axios.get(`http://localhost:9000/admin/admins`);
+    const adminn = await axios.get(`${SERVER_URL}/admin/admins`);
     const admindata = adminn.data.adminData[0];
     console.log(admindata);
     setAdminId(admindata?._id);

@@ -12,6 +12,7 @@ import useLogin from "../store/useLogin";
 import useUser from "../store/useUser";
 import Loader from "../components/Loader";
 import { Buffer } from "buffer";
+import { SERVER_URL } from "../src/Constants";
 
 const AdminShipped = () => {
   // const [isOpen, setIsOpen] = useState<boolean>(true);
@@ -27,6 +28,8 @@ const AdminShipped = () => {
   const refs: any = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
+    console.log();
+
     const checker = async () => {
       const { isLogin1, coData }: handleCookieType | any = await checkCookie();
       console.log(isLogin1, coData);
@@ -78,7 +81,7 @@ const AdminShipped = () => {
     // console.log("second");
     setIsLoading(true);
     try {
-      const resData = await axios.get(`http://localhost:9000/admin/updetails`);
+      const resData = await axios.get(`${SERVER_URL}/admin/updetails`);
       const resdata = resData.data;
       console.log(resdata);
       if (resdata.length == 0) {
@@ -106,14 +109,11 @@ const AdminShipped = () => {
     try {
       const isOk = confirm(`Are you sure to ${type} the Product 😀 ?`);
       if (isOk) {
-        const resData = await axios.post(
-          `http://localhost:9000/admin/selloneproduct`,
-          {
-            userEmail: email,
-            productId: productId,
-            type: type,
-          }
-        );
+        const resData = await axios.post(`${SERVER_URL}/admin/selloneproduct`, {
+          userEmail: email,
+          productId: productId,
+          type: type,
+        });
         const resdata = resData.data;
         console.log(resdata);
 
@@ -136,13 +136,10 @@ const AdminShipped = () => {
     try {
       const isOk = confirm(`Are you sure to  ${type} All Products 😀 ?`);
       if (isOk) {
-        const resData = await axios.post(
-          `http://localhost:9000/admin/sellallproduct`,
-          {
-            userEmail: email,
-            type: type,
-          }
-        );
+        const resData = await axios.post(`${SERVER_URL}/admin/sellallproduct`, {
+          userEmail: email,
+          type: type,
+        });
         const resdata = resData.data;
         console.log(resdata);
 
