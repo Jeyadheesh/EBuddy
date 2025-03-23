@@ -18,7 +18,7 @@ export const sliderData = [
   },
   {
     sName: "Women's Clothing",
-    desc: "Experience the ultimate blend of elegance and confidence with our women's clothing collection",
+    desc: "Experience the ultimate blend of elegance with our women's clothing collection",
     btnName: "Go to Women's Clothing",
     imgSrc: img3,
   },
