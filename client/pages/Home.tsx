@@ -80,7 +80,7 @@ const Home = () => {
         <Navbar />
         {!isSearch && <Slider handleScroll={handleScroll} />}
         <SampleProducts scrollRef={scrollRef} handleScroll={handleScroll} />
-        <Footer />
+{/*         <Footer /> */}
       </CategoryContext.Provider>
     </div>
   );
